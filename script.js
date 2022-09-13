@@ -42,7 +42,7 @@ if(!localStorage.getItem('bookId')){
 let bookId = localStorage.getItem('bookId');
 
 // events
-filter.addEventListener('mouseover',()=>{
+filter.addEventListener('click',()=>{
     inner.classList.add('inner_display');
 });
 
@@ -54,7 +54,7 @@ inner.addEventListener('click',()=>{
 
 
 window.addEventListener('click',(e)=>{
-   if (e.target != filter) {
+   if (e.target != filter && e.target != info_icon) {
     inner.classList.remove('inner_display');
     info.classList.remove('display');
     backdrop2.classList.remove('dropDisplay');
@@ -73,7 +73,7 @@ submit.addEventListener('click',(e)=>{
     form.reset();
     
 })
-info_icon.addEventListener('mouseover',()=>{
+info_icon.addEventListener('click',()=>{
     info.classList.add('display');
     backdrop2.classList.add('dropDisplay');
 });
