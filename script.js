@@ -42,7 +42,7 @@ if(!localStorage.getItem('bookId')){
 let bookId = localStorage.getItem('bookId');
 
 // events
-filter.addEventListener('click',()=>{
+filter.addEventListener('mouseover',()=>{
     inner.classList.add('inner_display');
 });
 
