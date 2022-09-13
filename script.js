@@ -29,7 +29,7 @@ const filter = document.querySelector('.filter');
 const inner = document.querySelector('.inner');
 const exit = document.querySelector('.exit');
 const information = document.querySelector('.information');
-
+const backdrop2 = document.querySelector('.backdrop2');
 
 
 
@@ -38,16 +38,30 @@ if(!localStorage.getItem('bookId')){
         localStorage.setItem('bookId',1);
 }
 
+
 let bookId = localStorage.getItem('bookId');
 
 // events
-filter.addEventListener('mouseover',()=>{
+filter.addEventListener('click',()=>{
     inner.classList.add('inner_display');
 });
 
 inner.addEventListener('click',()=>{
     inner.classList.remove('inner_display');
+    info.classList.remove('display');
+    backdrop2.classList.remove('dropDisplay');
 })
+
+
+window.addEventListener('click',(e)=>{
+   if (e.target != filter) {
+    inner.classList.remove('inner_display');
+    info.classList.remove('display');
+    backdrop2.classList.remove('dropDisplay');
+   }
+       
+    
+});
 
 close.addEventListener('click',()=>backdrop.classList.remove('bkdrop'));
 searchicon.addEventListener('click',()=>searchbar.style.top=`${3}rem`);
@@ -61,15 +75,15 @@ submit.addEventListener('click',(e)=>{
 })
 info_icon.addEventListener('mouseover',()=>{
     info.classList.add('display');
+    backdrop2.classList.add('dropDisplay');
 });
-information.addEventListener('mouseover',()=>{
-    inner.classList.remove('inner_display');
-})
+
 
 
 exit.addEventListener('click',()=>{
     info.classList.remove('display');
     inner.classList.remove('inner_display');
+    backdrop2.classList.remove('dropDisplay');
 })
 darkmode.addEventListener('click',()=>{
     if (!body.classList.contains('dark')) {
@@ -116,9 +130,9 @@ function addBook(){
 
     // creating a book object from newlly add book
     const book = {
-        title:titleValue,
-        author:authorValue,
-        page:page.value,
+        title:`"${titleValue}"`,
+        author:`By:${authorValue}`,
+        page:`pages: ${page.value}`,
         bookStatus:Status.value,
         bookId:bookId,   
     }
@@ -373,7 +387,7 @@ function search() {
 
     books.forEach(book=>{
         const{title,author,page,bookStatus,bookId} = book;
-        if (book.title.startsWith(searchValue)) {
+        if (book.title.startsWith(`"${searchValue}`)) {
            searchedBooks.push(book);
         }
     });

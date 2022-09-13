@@ -8,6 +8,7 @@ body{
     background-color: #eee;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 body.dark{
@@ -103,8 +104,12 @@ body.dark .icon{
     width: 200px;
     height: 200px;
     background-color: white;
+    background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url(p.jpg);
+    background-position: center;
+    background-size: cover;
     display: grid;
     gap: 1rem;
+    border-left: 10px solid rgb(111, 111, 236);
     padding: 1rem;
     box-shadow: 0 40px 40px rgba(0, 0, 0, 0.137);
     border-radius: 15px;
@@ -128,6 +133,7 @@ body.dark #book{
     margin-top: 0;
     text-transform: capitalize;
     text-shadow: 0 10px 10px rgba(0, 0, 0, 0.082);
+    color: white;
 }
 #book h1{
         font-size: 1rem;
@@ -135,6 +141,7 @@ body.dark #book{
     }
 #book h4{
         font-size: .9rem;
+        font-weight: lighter;
     }
 #book p{
         font-size: .8rem;
@@ -146,8 +153,8 @@ body.dark #book{
     border-radius: 10px;
     border: none;
     outline: none;
-    font-size: 1.1rem;
-    background-color: rgb(92, 148, 92);
+    font-size: .8rem;
+    background-color: rgb(84, 137, 185);
     box-shadow: 0 5px 5px rgba(37, 105, 63, 0.274);
     color: #fff;
 }
@@ -170,7 +177,7 @@ body.dark #book button{
     display: none;
     place-items: center;
     z-index: 10;
-    animation: .3s drop;
+    animation: .2s drop;
 }
 .bkdrop{
     display: grid;
@@ -253,9 +260,10 @@ body.dark .form-container form button{
     background-color: rgb(19, 51, 4);
     color: white;
 }
-.form-container form button.read{
-    background-color: red;
+.form-container form button:active{
+    background-color: blue;
 }
+
 
 @keyframes drop {
     from{
@@ -281,12 +289,12 @@ body.dark .form-container form button{
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.062);
     position: absolute;
     top: 5rem;
-    right: 1rem;
+    right: 4rem;
     padding: 0;
     opacity: 0;
     overflow: hidden;
     border-radius: .5rem;
-    transform: translateX(-5rem);
+    transform: translateX(1rem);
     transition: all .5s ease-in-out;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -294,6 +302,7 @@ body.dark .form-container form button{
 ul.display{
     transform: translateX(0rem);
     opacity: 1;
+    z-index: 10;
 }
 
 body.dark .info li{
@@ -311,6 +320,7 @@ body.dark .info li:hover{
     list-style: none;
     background-color: white;
     padding:1rem 1rem;
+    border-bottom: 1px solid rgb(214, 208, 208);
 }
 ul.info li:hover{
     color: white;
@@ -320,14 +330,14 @@ ul.info li:hover{
 .inner{
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.062);
     position: absolute;
-    top: 5rem;
-    right: 10rem;
+    top: -15rem;
+    right: 3.2rem;
     padding: 0;
     opacity: 0;
     overflow: hidden;
     border-radius: .5rem;
     transform: translateX(-5rem);
-    transition: all .5s ease-in-out;
+    transition: all 1s ease-in-out;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -335,9 +345,12 @@ ul.info li:hover{
 
 .inner_display{
     opacity: 1;
-    right: 3.2rem;
+    top: 8rem;
+    right: 7rem;
+    z-index: 10;
 }
 .inner li{
+    border-bottom: 1px solid rgb(214, 208, 208);
     width: 100%;
     cursor: pointer;
     list-style: none;
@@ -376,6 +389,23 @@ button#red{
 body.dark .userinfo{
     background-color: rgb(46, 44, 44);
     color: rgb(116, 189, 223);
+}
+
+.backdrop2{
+    position: fixed;
+    top: 0;
+    left: -100rem;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.677);
+    z-index: 5;
+    display: none;
+    transition: all 2.5s ease-in-out;
+}
+
+.dropDisplay{
+    display: block;
+    right: 0;
+    left: 0;
 }
 
 @media screen and (max-width:600px){
