@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>small Library</title>
+</head>
+<body>
+    <section class="container" id="container">
+            <div class="header" id="header">
+                <div class="logo">
+                    <h1>Library</h1>
+               </div>
+                <div class="search" id="settings">
+                    <div class="search" id="search">
+                        <div id="" class="searchbar">
+                            <i class="fas fa-times" id="searchclose"></i>
+                            <input onkeyup="search()" type="text" placeholder="search" id="searchinput">
+                        </div>
+                        <div class="icon searchicon">
+                            <i class="fas fa-search" id="searchicon"></i>
+                        </div>  
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-moon" id="darkmode"></i>
+                    </div>
+                    <div class="icon" id="info">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+               
+                    <ul class="info">
+                        <li class="filter">Filter Book</li>
+                        <li class="information" onclick="userInfo()">Information</li>
+                        <li class="exit">Exit</li>
+                    </ul>
+                    <ul class="inner">
+                        <li onclick="filterBook(this.textContent)">not Started</li>
+                        <li onclick="filterBook(this.textContent)">Inprogress</li>
+                        <li onclick="filterBook(this.textContent)">Completed</li>
+                        <li onclick="filterBook(this.textContent)">All</li>
+                    </ul>
+               
+            </div>
+            <div class="book-container" id="book-container">
+            </div>
+    <div class="backdrop" id="backdrop-container">
+        <i class="fas fa-times" id="close"></i>
+        <div class="form-container">
+            <div id="header2" class="header2">
+                <h1>add new book</h1>
+            </div>    
+                <form action="#" id="form">
+                    <input type="text" placeholder="Title" id="title">
+                    <input type="text" placeholder="Author" id="author">
+                    <input type="number" placeholder="Pages" id="page">
+
+                    <select name="status" id="status">
+                        <option value="status" selected>select status</option>
+                        <option value="not Started">not Started</option>
+                        <option value="Inprogress">Inprogress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                    <button class="submit" id="submit" type="submit">Save</button>
+                </form>
+            </div>
+    </div>
+    <div class="icon plus" id="plus">
+        <i class="fas fa-plus" title="Add Book"></i>
+    </div>
+    </section>  
+</body>
+</html>
