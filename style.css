@@ -297,6 +297,7 @@ body.dark .form-container form button{
     transform: translateX(1rem);
     transition: all .5s ease-in-out;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -3;
 }
 
 ul.display{
@@ -339,6 +340,7 @@ ul.info li:hover{
     transform: translateX(-5rem);
     transition: all 1s ease-in-out;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -3;
 }
 
 
