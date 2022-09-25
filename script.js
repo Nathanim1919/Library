@@ -35,7 +35,7 @@ const backdrop2 = document.querySelector('.backdrop2');
 
 let books = [];
 if(!localStorage.getItem('bookId')){
-        localStorage.setItem('bookId',1);
+    localStorage.setItem('bookId',1);
 }
 
 
@@ -59,20 +59,22 @@ window.addEventListener('click',(e)=>{
     info.classList.remove('display');
     backdrop2.classList.remove('dropDisplay');
    }
-       
-    
 });
+
 
 close.addEventListener('click',()=>backdrop.classList.remove('bkdrop'));
 searchicon.addEventListener('click',()=>searchbar.style.top=`${3}rem`);
 searchclose.addEventListener('click',()=>searchbar.style.top=`${-3}rem`);
 plus.addEventListener('click',()=>backdrop.classList.toggle('bkdrop'));
+
 submit.addEventListener('click',(e)=>{
     e.preventDefault();
     addBook();
     form.reset();
     
-})
+});
+
+
 info_icon.addEventListener('click',()=>{
     info.classList.add('display');
     backdrop2.classList.add('dropDisplay');
@@ -84,7 +86,9 @@ exit.addEventListener('click',()=>{
     info.classList.remove('display');
     inner.classList.remove('inner_display');
     backdrop2.classList.remove('dropDisplay');
-})
+});
+
+
 darkmode.addEventListener('click',()=>{
     if (!body.classList.contains('dark')) {
         body.classList.add('dark');
@@ -101,7 +105,15 @@ darkmode.addEventListener('click',()=>{
 });
 
 
-
+class Book{
+    constructor(title,author,page,bookStatus,bookId){
+        this.title = title;
+        this.author = author;
+        this.page = page;
+        this.bookStatus = bookStatus;
+        this.bookId = bookId;
+    }
+}
 
 
 // add book to the localstorage
@@ -129,13 +141,10 @@ function addBook(){
      }
 
     // creating a book object from newlly add book
-    const book = {
-        title:`"${titleValue}"`,
-        author:`By:${authorValue}`,
-        page:`pages: ${page.value}`,
-        bookStatus:Status.value,
-        bookId:bookId,   
-    }
+
+    const book = new Book(titleValue,authorValue,page.value,Status.value,bookId);
+   
+
     bookId++;
     localStorage.setItem('bookId',bookId);
 
@@ -148,6 +157,7 @@ function addBook(){
     // after add the book into the localstorage we remove the form (after we tab the submit button)
     backdrop.classList.remove('bkdrop');
     fetchBook();
+
     }
 
 
