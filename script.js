@@ -105,6 +105,17 @@ darkmode.addEventListener('click',()=>{
 });
 
 
+class Book{
+    constructor(title,author,page,bookStatus,bookId){
+        this.title = title;
+        this.author = author;
+        this.page = page;
+        this.bookStatus = bookStatus;
+        this.bookId = bookId;
+    }
+}
+
+
 // add book to the localstorage
 function addBook(){
     if (!validate()) {
@@ -130,14 +141,10 @@ function addBook(){
      }
 
     // creating a book object from newlly add book
-    const book = {
-        title:`"${titleValue}"`,
-        author:`By:${authorValue}`,
-        page:`pages: ${page.value}`,
-        bookStatus:Status.value,
-        bookId:bookId,   
-    }
-    
+
+    const book = new Book(titleValue,authorValue,page.value,Status.value,bookId);
+   
+
     bookId++;
     localStorage.setItem('bookId',bookId);
 
